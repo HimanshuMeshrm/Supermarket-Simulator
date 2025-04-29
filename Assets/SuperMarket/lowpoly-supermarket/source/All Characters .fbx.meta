@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: e874995f97ca834458ee1d31b3501a25
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1. hair
+    second: {fileID: 2100000, guid: 75bbc739019f4eb4a82d904019d730f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1. overalls
+    second: {fileID: 2100000, guid: 4f0a161e4114fef40b078a82f1068448, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1. shirt
+    second: {fileID: 2100000, guid: 7406589fc5dcd194c9ac138f0c33630f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1. shoe black
+    second: {fileID: 2100000, guid: eb2412d7480cc7e4fa1765bc861c4fa4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1. shoe white
+    second: {fileID: 2100000, guid: cbfa190e099239740ac1ea00a32aa3a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1. skin
+    second: {fileID: 2100000, guid: 5cf81e9a9756f744e843f46c6b93a345, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2. apron
+    second: {fileID: 2100000, guid: 99ebeb9755f09b145bacd1e7114ea48b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2. hair
+    second: {fileID: 2100000, guid: dd8eed5e9ef28a346a54bace3afa88ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2. jeans
+    second: {fileID: 2100000, guid: 26d7a19b951a3a04d8f57a49c74ed492, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2. shirt
+    second: {fileID: 2100000, guid: 08d4bd819dc444241a7e0e3b51a104a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2. shoe black
+    second: {fileID: 2100000, guid: e03f97257a57d784da9b8f08221cc368, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2. skin
+    second: {fileID: 2100000, guid: 53746c21982a0794783d696d55294f63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3. black
+    second: {fileID: 2100000, guid: 805c2f5662659f840b3baae50f911d45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3. hair
+    second: {fileID: 2100000, guid: 40b9ec159065861448b7bbdc0fcb247b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3. jeans
+    second: {fileID: 2100000, guid: 1156d523111a3b74284730322ae02850, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3. jumper
+    second: {fileID: 2100000, guid: cba3f9517cd8c194192d4341f3611f00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3. shoes
+    second: {fileID: 2100000, guid: 523c60ea2da3264489a924493a324f21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3. skin
+    second: {fileID: 2100000, guid: 0e7a16741676c454c96bd48fcf2daeed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4. Blazer
+    second: {fileID: 2100000, guid: 18d9b44700d081e48902e0f6b9b8a805, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4. Hair pin
+    second: {fileID: 2100000, guid: a6263dd56a1b6354483b0be0892a99a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4. hair
+    second: {fileID: 2100000, guid: b7185ce445aa29c4ebe54d03b985289f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4. jeans and shoe
+    second: {fileID: 2100000, guid: 2c565429e9e5fa842a7ee56d2f5b3bac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4. shirt
+    second: {fileID: 2100000, guid: a428d55400b842f4da417bb3b24e82fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4. skin
+    second: {fileID: 2100000, guid: 58ab3ee3d9998a842920564c6e0f378c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Business - Black
+    second: {fileID: 2100000, guid: bda6834bad4c42343a81c089de38bf72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Business - Shirt
+    second: {fileID: 2100000, guid: 20ea617b26e4c6d46a132ce711f5042e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Business - base
+    second: {fileID: 2100000, guid: 0b29e2a3f42d18f4e9392ea8007f88c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Child Skirt
+    second: {fileID: 2100000, guid: 84e6d6368655e744aafad8f049370afc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Child White
+    second: {fileID: 2100000, guid: 5d7fe8c81f2437d4ba9cfbfb554713f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Child hair
+    second: {fileID: 2100000, guid: c9792e4db965f304981efe6277b2aabe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Child skin
+    second: {fileID: 2100000, guid: b69e17c5280da5e40934b58c21baf1c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fem cust base
+    second: {fileID: 2100000, guid: 6b394b8de50dea848be272081e292377, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fem cust other
+    second: {fileID: 2100000, guid: 44d48f7d18ea1df4db0e1eb30fafe6c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fem cust shirt
+    second: {fileID: 2100000, guid: d7439db371a3df64eb19a3106a6898bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband - Skin
+    second: {fileID: 2100000, guid: 681b3a9de24e73d4e95c9a55b8eb341f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband - Skin.001
+    second: {fileID: 2100000, guid: e530927e2aa9cbc4caccc77a2fa7c1fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband - Skin.002
+    second: {fileID: 2100000, guid: d5078da148551bc42a6102294f03f8fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband black
+    second: {fileID: 2100000, guid: 52d74d08d4607184d8c10fb02d7cfb9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband black.001
+    second: {fileID: 2100000, guid: 8a7d0794696527e4597f8fef8f8fd3ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband black.002
+    second: {fileID: 2100000, guid: 78ef703ca07f6a0428f31ad6781e0306, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband hair
+    second: {fileID: 2100000, guid: 5467deefad690c84dbc155e7483c7510, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband hair.001
+    second: {fileID: 2100000, guid: 3c73919d042ff4743865a1264ae70633, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband hair.002
+    second: {fileID: 2100000, guid: 7ab696c12a10aa24f97b2c4701e4556a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband shirt
+    second: {fileID: 2100000, guid: 1172368957e4a7c45b0355218dae26bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband shirt.001
+    second: {fileID: 2100000, guid: 783521876fb93ee499d24750e35d6158, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Husband shirt.002
+    second: {fileID: 2100000, guid: acb26703531ef6d4780b17449795c181, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Male Cust - Black
+    second: {fileID: 2100000, guid: af2354cb8c4315d4a866159b74e04694, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Male Cust - Shirt
+    second: {fileID: 2100000, guid: 43936bc6e90ea5e41ad7c283eb04e38b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Male Cust- base
+    second: {fileID: 2100000, guid: 11f48c189c054694cb61d354b7ef789b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teen apron
+    second: {fileID: 2100000, guid: afd0160af249e2b4b846c673af28b025, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teen hair
+    second: {fileID: 2100000, guid: c4aa733c351cf284ca134f8be871e980, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teen jeans
+    second: {fileID: 2100000, guid: 2870a3eb62f3194498598142ab15af39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teen shirt
+    second: {fileID: 2100000, guid: 8235efab8320fe44f9e683a5ad850129, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teen skin
+    second: {fileID: 2100000, guid: 527791491eca5c84da9efb848f6e7ead, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

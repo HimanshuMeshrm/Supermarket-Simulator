@@ -477,7 +477,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 0}
   pauseMenu: {fileID: 0}
-  isPaused: 0
 --- !u!114 &292415171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,16 +495,24 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 292415170}, m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp, m_MethodName: QuitGame, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
+      - m_Target: {fileID: 292415170}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
 --- !u!1 &314848449
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +764,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 1157761310}
   pauseMenu: {fileID: 0}
-  isPaused: 0
 --- !u!114 &730850843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,16 +782,24 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 730850842}, m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp, m_MethodName: OpenSettings, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
+      - m_Target: {fileID: 730850842}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: OpenSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
 --- !u!1 &843926415
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,16 +857,24 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 843926420}, m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp, m_MethodName: StartGame, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
+      - m_Target: {fileID: 843926420}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
 --- !u!114 &843926418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,7 +927,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 0}
   pauseMenu: {fileID: 0}
-  isPaused: 0
 --- !u!1 &972726954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,7 +1103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 1157761310}
   pauseMenu: {fileID: 0}
-  isPaused: 0
 --- !u!114 &988821995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,16 +1121,24 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 988821994}, m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp, m_MethodName: CloseSettings, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
+      - m_Target: {fileID: 988821994}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: CloseSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
 --- !u!1 &1019001874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1486,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 0}
   pauseMenu: {fileID: 0}
-  isPaused: 0
 --- !u!1 &1204309550
 GameObject:
   m_ObjectHideFlags: 0

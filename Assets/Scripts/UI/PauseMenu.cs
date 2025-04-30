@@ -3,52 +3,75 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI;  // Reference to the pause menu panel
-    private bool isPaused = false;  // Track if the game is paused
+    public GameObject pauseMenuPanel;
+    public GameObject settingsPanel;
+
+    private bool isPaused = false;
 
     void Update()
     {
-        // Debugging the current scene name and Escape key press
-        Debug.Log("Current Scene: " + SceneManager.GetActiveScene().name);
-
-        // Check if the Escape key is pressed while in the game scene
-        if (SceneManager.GetActiveScene().name == "GameSceneName" && Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Escape key pressed");
-            if (isPaused)
+            if (settingsPanel.activeSelf)
             {
-                ResumeGame();  // If paused, resume the game
+                // Close settings if it's open
+                settingsPanel.SetActive(false);
+                pauseMenuPanel.SetActive(true);
             }
             else
             {
-                PauseGame();  // If not paused, show the pause menu
+                TogglePauseMenu();
             }
         }
     }
 
-    // Show the pause menu and stop the game time
-    void PauseGame()
+    void TogglePauseMenu()
     {
-        pauseMenuUI.SetActive(true);  // Show the pause menu
-        Time.timeScale = 0f;  // Pause the game (freeze gameplay)
-        isPaused = true;  // Set paused state to true
+        isPaused = !isPaused;
+        pauseMenuPanel.SetActive(isPaused);
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f; // Freeze game time
+        }
+        else
+        {
+            Time.timeScale = 1f; // Resume game time
+        }
     }
 
-    // Hide the pause menu and resume the game
     public void ResumeGame()
     {
-        pauseMenuUI.SetActive(false);  // Hide the pause menu
-        Time.timeScale = 1f;  // Resume the game (unfreeze gameplay)
-        isPaused = false;  // Set paused state to false
+        isPaused = false;
+        pauseMenuPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
-    // Quit to the main menu scene
-    public void QuitGame()
+    public void OpenSettings()
     {
-        Time.timeScale = 1f;  // Make sure the game is resumed
-        SceneManager.LoadScene("MainMenu");  // Change to the name of your main menu scene
+        pauseMenuPanel.SetActive(false);
+        settingsPanel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
+        pauseMenuPanel.SetActive(true);
+    }
+
+    public void QuitToMainMenu()
+    {
+        Time.timeScale = 1f; // Ensure game time resumes
+        SceneManager.LoadScene("MainMenu"); // Replace with your actual scene name
+    }
+
+    void OnDisable()
+    {
+        Time.timeScale = 1f; // Safety net to resume time
     }
 }
+
+
 
 
 

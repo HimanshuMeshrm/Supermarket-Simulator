@@ -36,7 +36,7 @@ public abstract class StateController : MonoBehaviour
         CurrentState?.Exit();
         CurrentState = newState;
         CurrentState?.Enter();
-
+        
         UpdateDebugStateName();
     }
 

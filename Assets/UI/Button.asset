@@ -35,6 +35,6 @@ MonoBehaviour:
     rotationDuration: 0.2
   clickSound: {fileID: 0}
   enterSound: {fileID: 0}
-  exitSound: {fileID: 0}
+  exitSound: {fileID: 8300000, guid: 42db3494e097f374193de5454cdcaa02, type: 3}
   downSound: {fileID: 0}
   upSound: {fileID: 0}

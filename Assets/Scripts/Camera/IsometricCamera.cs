@@ -9,6 +9,7 @@ public class IsometricCameraController : MonoBehaviour
     [SerializeField] private float MinZoom = 5f;
     [SerializeField] private float MaxZoom = 20f;
     [SerializeField] private float SmoothTime = 0.2f;
+    [SerializeField] private float Pitch = 55f; // Increased for top-down effect
 
     private Vector3 _currentVelocity;
     private float _currentZoom;
@@ -39,7 +40,7 @@ public class IsometricCameraController : MonoBehaviour
 
     private void UpdatePosition()
     {
-        Quaternion rotation = Quaternion.Euler(30f, _yaw, 0f);
+        Quaternion rotation = Quaternion.Euler(Pitch, _yaw, 0f); // Use pitch
         Offset = rotation * new Vector3(0, 0, -_currentZoom);
         _desiredPosition = Target.position + Offset;
         transform.position = Vector3.SmoothDamp(transform.position, _desiredPosition, ref _currentVelocity, SmoothTime);

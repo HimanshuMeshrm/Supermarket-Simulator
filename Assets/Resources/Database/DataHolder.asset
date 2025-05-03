@@ -19,10 +19,13 @@ MonoBehaviour:
   CartPrefab: {fileID: 768014090731628837, guid: 0a13b09fbeb3fa34cac448317791fb98, type: 3}
   CustomersPrefabs:
   - {fileID: 6012626047370274902, guid: 827096fd965fac9459bd53420602eec7, type: 3}
+  - {fileID: 3175653726299292161, guid: 7fe397fe347c3b547a0bad442acf7abe, type: 3}
   TaskSprite:
     _serializedList:
     - Key: GetCartTask
       Value: {fileID: 21300000, guid: 79e47108b5f4d1b478b451979414d4a5, type: 3}
+    - Key: Waiting
+      Value: {fileID: 21300000, guid: 61ae762032bc0564da3347fa7b86cfdb, type: 3}
     - Key: Billing
       Value: {fileID: 21300000, guid: bf80d49eee6d80f48ba64a114e26dc6e, type: 3}
     - Key: GoToCashCounterTask

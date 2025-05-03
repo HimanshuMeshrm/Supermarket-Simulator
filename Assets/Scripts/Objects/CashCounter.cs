@@ -48,7 +48,7 @@ public class CashCounter : Interactable
                 break;
 
             case BillingState.Billing:
-                // Nothing needed here, billing ends via Invoke.
+                _billingState = BillingState.Idle;
                 break;
         }
     }
@@ -95,11 +95,15 @@ public class CashCounter : Interactable
     {
         if (_currentCustomer != null)
         {
+            
+            GameManager.Instance.Player.MoneyAccount.AddMoney(_currentCustomer._currentCart.Inventory.GetTotalValue());
+            _currentCustomer._currentCart.Inventory.Clear(true);
+            _currentCustomer.LeaveCart(_currentCustomer);
+            _currentCustomer._currentCart = null;
             _currentCustomer.HasBeenBilled = true;
             _currentCustomer = null;
+           
         }
-
-        _billingState = BillingState.Idle;
     }
 
     public override void Interact(IInteractor interactor) { }

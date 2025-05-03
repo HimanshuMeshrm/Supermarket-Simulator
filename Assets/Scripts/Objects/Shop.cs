@@ -1,11 +1,10 @@
-using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Shop : MonoBehaviour
 {
     public string ShopName = "Shanu Supermarket";
+    public int ShopLevel => CalculateShopLevel();
 
     public List<Shelve> Shelves = new List<Shelve>();
     public List<Employee> Employees = new List<Employee>();
@@ -16,14 +15,23 @@ public class Shop : MonoBehaviour
 
     void Awake()
     {
-        List<Shelve> shelve = FindObjectsByType<Shelve>(sortMode: FindObjectsSortMode.None).ToList();
-        Shelves.AddRange(shelve);
+        Shelves.AddRange(FindObjectsByType<Shelve>(FindObjectsSortMode.None));
+        Employees.AddRange(FindObjectsByType<Employee>(FindObjectsSortMode.None));
+        CashCounters.AddRange(FindObjectsByType<CashCounter>(FindObjectsSortMode.None));
+    }
 
-        List<Employee> Employee = FindObjectsByType<Employee>(sortMode: FindObjectsSortMode.None).ToList();
-        Employees.AddRange(Employee);
+    private int CalculateShopLevel()
+    {
+        int shelfScore = Shelves.Count;
+        int employeeScore = Employees.Count * 2;
+        int counterScore = CashCounters.Count * 3;
+        int totalScore = shelfScore + employeeScore + counterScore;
 
-        List<CashCounter> CashCounter = FindObjectsByType<CashCounter>(sortMode: FindObjectsSortMode.None).ToList();
-        CashCounters.AddRange(CashCounter);
+        if (totalScore >= 30) return 5;
+        if (totalScore >= 20) return 4;
+        if (totalScore >= 12) return 3;
+        if (totalScore >= 6) return 2;
+        return 1;
     }
 
     public CashCounter GetClosetCashCounter(Vector3 position)
@@ -41,6 +49,7 @@ public class Shop : MonoBehaviour
         }
         return closest;
     }
+
     public Shelve GetShelve(ItemData item)
     {
         foreach (var shelve in Shelves)

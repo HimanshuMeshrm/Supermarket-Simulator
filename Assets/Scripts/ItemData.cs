@@ -15,5 +15,5 @@ public class ItemData : ScriptableObject
     {
         this.ItemObject.SetData(this);
     }
-    public GameObject GetGameObject() => PoolManager.Instance.GetPool(this).Get();
+    public GameObject GetGameObject() => PoolManager.Instance.GetItemPool(this).Get();
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 [Serializable]
 public class ObjectPool
 {
+    public int PoolID { get; private set; } = 0;
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public GameObject Prefab { get; private set; }
     [field: SerializeField] public Transform Parent { get; private set; }
@@ -18,12 +19,12 @@ public class ObjectPool
     public int NonActive => Pool.Count;
     public int Count => Pool.Count;
 
-    public ObjectPool(GameObject prefab, int initialSize, Transform parent = null, string name = "PooledObj")
+    public ObjectPool(GameObject prefab, int initialSize, Transform parent = null, string name = "PooledObj", int PoolID = 0)
     {
         Prefab = prefab ?? throw new ArgumentNullException(nameof(prefab));
         Name = name;
         Parent = parent ?? new GameObject($"{name}_Parent").transform;
-
+        this.PoolID = PoolID;
         for (int i = 0; i < initialSize; i++)
         {
             Create(i);

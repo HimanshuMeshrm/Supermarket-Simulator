@@ -34,7 +34,7 @@ public class Player : Entity, IInteractor
     public override void Update()
     {
         HandleMovement();
-        HandleInteraction();
+        //HandleInteraction();
         UpdateAnimationState();
         base.Update();
     }

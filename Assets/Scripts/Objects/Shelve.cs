@@ -1,3 +1,5 @@
+
+using System.Collections.Generic;
 using UnityEngine;
 using static Entity;
 
@@ -18,14 +20,14 @@ public class Shelve : Interactable
         int count = 10;
         for (int i = 0; i < count; i++)
         {
-            Item item = PoolManager.Instance.GetPool(Item).Get().GetComponent<Item>();
-            Inventory.AddItem(item.transform);
+            Item item = PoolManager.Instance.GetItemPool(Item).Get().GetComponent<Item>();
+            Inventory.AddItem(item);
         }
     }
 
-    public void Interact(GameObject interactor)
+    public override void Interact(IInteractor interactor)
     {
-        if (interactor.TryGetComponent<Entity>(out var entity))
+        if (interactor is Entity entity)
         {
             switch (entity.Type)
             {
@@ -37,26 +39,42 @@ public class Shelve : Interactable
                     break;
                 case EntityType.Player:
                     Player player = entity as Player;
+                    int remaining = Inventory.GetEmptySpaceCount();
+
+                    for (int i = 0; i < remaining; i++)
+                    {
+                        Item capturedItem = PoolManager.Instance.GetItemPool(Item).Get().GetComponent<Item>();
+                        ItemSpace targetSpace = Inventory.ReserveFirstEmptySpace();
+
+                        if (targetSpace == null)
+                        {
+                            Debug.LogWarning("No empty item space found.");
+                            break;
+                        }
+
+                        List<Item> singleItemList = new List<Item> { capturedItem };
+
+                        
+                        ItemSpace capturedSpace = targetSpace;
+
+   
+                        AnimatorUtil.MoveItems(singleItemList, capturedSpace.Transform, 1f, () =>
+                        {
+                            Inventory.AddItemToSpace(capturedSpace, capturedItem);
+                            ItemsFull();
+                        });
+                    }
                     break;
+
                 default:
                     Debug.LogWarning("Unknown entity type.");
                     break;
             }
         }
     }
-
-    public override void Interact(IInteractor interactor)
+    public void ItemsFull()
     {
-        if (interactor is Customer customer)
-        {
-            Transform item = Inventory.RemoveItem();
-            if (item != null)
-            {
-                if(customer._current is Cart cart)
-                {
-                    cart.Inventory.AddItem(item);
-                }
-            }
-        }
+        Debug.Log("Boo");
     }
+   
 }

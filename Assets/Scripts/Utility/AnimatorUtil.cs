@@ -6,38 +6,40 @@ using UnityEngine.AI;
 
 public static class AnimatorUtil
 {
-    public static void MoveItems(List<Transform> items, Transform target, float duration, Action onComplete)
+    public static void MoveItems(List<Item> items, Transform target, float duration, Action onComplete)
     {
         int completed = 0;
         int total = items.Count;
 
         foreach (var item in items)
         {
-            item.DOMove(target.position, duration)
+            Vector3 endPosition = target.position;
+
+            item.transform.DOMove(endPosition, duration)
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() => {
-                    item.SetParent(target);
-                    item.localPosition = Vector3.zero;
+                    item.transform.position = endPosition;
                     completed++;
                     if (completed >= total)
                         onComplete?.Invoke();
                 });
         }
     }
+
 }
 public static class InventoryHelper
 {
     public static void TransferItem(Inventory from, Inventory to, Transform receiver, float moveDuration, Action onComplete = null)
     {
-        Transform item = from.RemoveItem();
+        Item item = from.RemoveItem().GetComponent<Item>();
         if (item == null)
         {
             onComplete?.Invoke();
             return;
         }
 
-  
-        AnimatorUtil.MoveItems(new List<Transform> { item }, receiver, moveDuration, () => {
+        
+        AnimatorUtil.MoveItems(new List<Item> { item }, receiver, moveDuration, () => {
             to.AddItem(item);
             onComplete?.Invoke();
         });

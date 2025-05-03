@@ -15,6 +15,16 @@ public class ShoppingList
 
     public ItemRequest PeekNextItem() => _itemsToBuy.Peek();
 
+
+    public int GetTotalCost()
+    {
+        int cost = 0;
+        foreach (var item in _itemsToBuy)
+        {
+            cost += (int)(item.Data.Price * item.Quantity);
+        }
+        return cost;
+    }
     public ItemRequest DequeueItem() => _itemsToBuy.Dequeue();
 }
 

@@ -7,30 +7,34 @@ public class Cart : Interactable
 
     [SerializeField] private Transform spaceParent;
 
-    private void Start()
+    public bool IsBeingHeld { get; private set; } = false;
+
+   
+    public void Initialize()
     {
         if (Inventory == null)
         {
             Debug.LogError($"[Cart] Inventory not assigned on {gameObject.name}");
             return;
         }
-
         if (Item == null)
         {
             Debug.LogWarning($"[Cart] ItemData is missing on {gameObject.name}, initializing with null.");
         }
-
         if (spaceParent == null)
         {
             Debug.LogError($"[Cart] spaceParent not assigned on {gameObject.name}");
             return;
         }
-
+        IsBeingHeld = false;
+        IsInteractable = true;
         Inventory.Initialize(Item, spaceParent);
     }
-
+    
     public override void Interact(IInteractor interactor)
     {
+        if (IsBeingHeld) return;
+
         if (!IsInteractable)
         {
             Debug.LogWarning($"[Cart] Tried to interact with cart {name}, but it's already being held.");
@@ -41,6 +45,7 @@ public class Cart : Interactable
         {
             entity.HoldCart(this);
             IsInteractable = false;
+            IsBeingHeld = true;
             Debug.Log($"[Cart] {entity.name} is now holding cart {name}");
         }
         else
@@ -48,5 +53,4 @@ public class Cart : Interactable
             Debug.LogWarning($"[Cart] Interactor is not an Entity.");
         }
     }
-        
 }

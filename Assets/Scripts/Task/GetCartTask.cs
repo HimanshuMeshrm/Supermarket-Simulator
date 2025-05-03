@@ -15,19 +15,20 @@ public class GetCartTask : ITask
 
     public void Update(Entity entity)
     {
-        if (!_started) return;
+        if (!_started || IsCompleted) return;
 
         if (entity.DestinationReached)
         {
             Debug.Log($"Entity {entity.name} has reached the cart spawn position.");
 
-            if (entity is IInteractor interactor)
+            if (entity is Customer customer)
             {
-                Debug.Log($"Entity {entity.name} is interacting with cart.");
+                Debug.Log($"Entity {customer.name} is interacting with cart.");
                 Cart cart = PoolManager.Instance.GetCart();
-                
-                interactor.SetInteractable(cart);
-                interactor.Interact();
+                cart.Initialize();
+                customer.SetInteractable(cart);
+                customer.Interact();
+              
                 IsCompleted = true;
             }
         }

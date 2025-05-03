@@ -9,6 +9,7 @@ public class Customer : Entity, IInteractor
     private const string WalkAnim = "Walk";
     private const string RunAnim = "Run";
 
+   
     private string _currentAnim;
     [field: SerializeField] public Interactable _current { get; set; }
 
@@ -16,7 +17,7 @@ public class Customer : Entity, IInteractor
     public bool HasBeenBilled { get; set; }
     public string TaskDebug;
 
-    [SerializeField] private ShoppingList _shoppingList = new ShoppingList();
+    [SerializeField] public ShoppingList _shoppingList { get; private set; } = new ShoppingList();
     [SerializeField] public ItemRequest _currentItemRequest;
 
     private Queue<ITask> _tasks = new Queue<ITask>();
@@ -24,18 +25,19 @@ public class Customer : Entity, IInteractor
 
     public Cart _currentCart;
 
-    private void Start()
+    public void InitializeCustomer()
     {
         thoughtUI = UIManager.Instance.ThoughtsUIPool.Get().GetComponent<EntityThoughtUI>();
         thoughtUI.Follow(this);
-
+        HasBeenBilled = false;
+        MoneyAccount = new MoneyAccount();
         SetEntityType(EntityType.Customer);
         SetShoppingList();
         InitializeTasks();
     }
-
     private void InitializeTasks()
     {
+        _tasks.Clear();
         _tasks.Enqueue(new GetCartTask());
         _tasks.Enqueue(new ShopTask());
         _tasks.Enqueue(new GoToCashCounterTask());
@@ -136,9 +138,12 @@ public class Customer : Entity, IInteractor
 
     private void SetShoppingList()
     {
+        _shoppingList = new ShoppingList();
         _shoppingList.AddItem(DataHolder.Instance.GetRandomItem(), Random.Range(0, 3));
         _shoppingList.AddItem(DataHolder.Instance.GetRandomItem(), Random.Range(0, 3));
         _shoppingList.AddItem(DataHolder.Instance.GetRandomItem(), Random.Range(0, 3));
+       
+        MoneyAccount.AddMoney(_shoppingList.GetTotalCost());
         Debug.Log($"Shopping list initialized for customer: {name}");
     }
 

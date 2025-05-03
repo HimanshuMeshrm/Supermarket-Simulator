@@ -35,6 +35,10 @@ public abstract class Interactable : MonoBehaviour
 
             CurrentInteractor = interactor;
             interactor.SetInteractable(this);
+            if(interactor is Player player)
+            {
+                Interact(player);
+            }
             OnFocus();
         }
     }

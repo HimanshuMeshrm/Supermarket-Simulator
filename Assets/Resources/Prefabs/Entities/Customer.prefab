@@ -80,13 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStateDebug: 
   <Animator>k__BackingField: {fileID: 7730339332136537655}
-  <Rigidbody>k__BackingField: {fileID: 0}
-  <Collider>k__BackingField: {fileID: 0}
   CartPosition: {fileID: 1537140994829382714}
   <NavMeshAgent>k__BackingField: {fileID: 9059605746471731179}
-  <DestinationTrigger>k__BackingField: {fileID: 0}
   <Type>k__BackingField: 1
-  <thoughtUI>k__BackingField: {fileID: 0}
   <_current>k__BackingField: {fileID: 0}
   TaskDebug: 
   _currentCart: {fileID: 0}
@@ -164,6 +160,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Female
       objectReference: {fileID: 0}
+    - target: {fileID: 6337755906358019729, guid: 75838df0a41bbbe42b4f2da3a28784d4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e8f3754a66a4a949808fc76d4fcde23, type: 2}
+    - target: {fileID: 6800212809084600965, guid: 75838df0a41bbbe42b4f2da3a28784d4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e8f3754a66a4a949808fc76d4fcde23, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

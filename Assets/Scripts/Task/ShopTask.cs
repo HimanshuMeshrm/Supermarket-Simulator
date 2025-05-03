@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class ShopTask : ITask
 {
@@ -24,8 +25,7 @@ public class ShopTask : ITask
 
         if (!_started || IsCompleted || _isItemBeingTransferred) return;
 
-        
-
+       
         if (entity is Customer customer && !customer.IsInteracting)
         {
             if (customer.DestinationReached)
@@ -39,38 +39,39 @@ public class ShopTask : ITask
     {
         if (customer._current is not Shelve shelve) return;
         if (shelve.Item != customer._currentItemRequest.Data) return;
+        if (customer._currentCart == null) return;
 
-        Transform itemTransform = shelve.Inventory.RemoveItem();
-
-        if (itemTransform != null)
+        Item shelveItem = shelve.Inventory.RemoveItem()?.GetComponent<Item>();
+        if (shelveItem == null)
         {
-            if (customer._currentCart == null)
-            {
-                Debug.LogWarning("[ShopTask] No cart available for customer.");
-                return;
-            }
+            customer.thoughtUI.SetIcon(DataHolder.Instance.GetTaskSprite("Waiting"));
+            return;
+        }
 
-            _isItemBeingTransferred = true;
-            InventoryHelper.TransferItem(
-                shelve.Inventory,
-                customer._currentCart.Inventory,
-                itemTransform,
-                1f,
-                () => OnItemTransferred(customer)
-            );
-        }
-        else
+        ItemSpace reservedSpace = customer._currentCart.Inventory.ReserveFirstEmptySpace();
+        if (reservedSpace == null)
         {
-            Debug.LogWarning("[ShopTask] Shelf is empty.");
-            ProceedToNextItem(customer);
+            Debug.LogWarning("[ShopTask] No empty space in cart.");
+            reservedSpace.Unreserve();
+            shelve.Inventory.AddItem(shelveItem);
+            return;
         }
+
+        _isItemBeingTransferred = true;
+
+        AnimatorUtil.MoveItems(new List<Item> { shelveItem }, reservedSpace.Transform, 1f, () => {
+            customer._currentCart.Inventory.AddItemToSpace(reservedSpace, shelveItem);
+            OnItemTransferred(customer);
+        });
+
     }
+
 
     private void OnItemTransferred(Customer customer)
     {
         _itemsCollected++;
         Debug.Log($"[ShopTask] Transferred item. {_itemsCollected} / {customer._currentItemRequest.Quantity}");
-
+        customer.thoughtUI.SetIcon(customer._currentItemRequest.Data.Icon, $"{_itemsCollected} / {customer._currentItemRequest.Quantity}");
         if (_itemsCollected >= customer._currentItemRequest.Quantity)
         {
             customer.SetInteractable(null);

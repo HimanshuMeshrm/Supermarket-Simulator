@@ -515,10 +515,10 @@ MonoBehaviour:
   interactionPrompt: Press E to interact
   UIInteract: {fileID: 1398274465438405959}
   <Inventory>k__BackingField:
-    Spaces: []
-    Item: {fileID: 0}
+    spaces: []
+    defaultItem: {fileID: 0}
     spaceParent: {fileID: 0}
-  <Item>k__BackingField: {fileID: 11400000, guid: 51b54004dbcd28d4a98d3055d4377589, type: 2}
+  <Item>k__BackingField: {fileID: 11400000, guid: 1246fbd8a86b5d749974a4fdf9bb5748, type: 2}
   spaceParent: {fileID: 252086677706597626}
 --- !u!65 &6561282820151444065
 BoxCollider:

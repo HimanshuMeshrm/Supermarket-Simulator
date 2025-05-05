@@ -16,9 +16,9 @@ public static class SaveManager
             currentGameSave = gameSave;
             Debug.Log("Game saved successfully.");
         }
-        catch (Exception e)
+        catch (Exception exp)
         {
-            Debug.LogError("Error saving game: " + e.Message);
+            Debug.LogError("Error saving game: " + exp.Message);
         }
     }
     public static void SaveGame()
@@ -34,9 +34,9 @@ public static class SaveManager
             File.WriteAllText(saveFilePath, jsonData);
             Debug.Log("Game saved successfully.");
         }
-        catch (Exception e)
+        catch (Exception exc)
         {
-            Debug.LogError("Error saving game: " + e.Message);
+            Debug.LogError("Error saving game: " + exc.Message);
         }
     }
 
@@ -51,11 +51,12 @@ public static class SaveManager
                 Debug.Log("Game loaded successfully.");
                 return currentGameSave;
             }
-            catch (Exception e)
+            catch (Exception exc)
             {
-                Debug.LogError("Error loading game: " + e.Message);
+                Debug.LogError("Error loading game: " + exc.Message);
                 return null;
             }
+         
         }
         else
         {

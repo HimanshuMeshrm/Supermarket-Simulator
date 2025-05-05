@@ -11,6 +11,8 @@ public abstract class Entity : StateController
     private Vector3 Destination = Vector3.zero;
     [field: SerializeField] public EntityType Type { get; protected set; } = EntityType.Customer;
     public EntityThoughtUI thoughtUI { get; protected set; }
+
+    
     public enum EntityType
     {
         Player,
@@ -41,14 +43,14 @@ public abstract class Entity : StateController
         }
         else
         {
-            Debug.LogError($"HoldCart: {interactable.name} is not a Cart.");
+            Debug.LogError($"HoldCart: {interactable.name} is not t Cart.");
         }
     }
     public void LeaveCart(Customer customer)
     {
         if (customer == null)
         {
-            Debug.LogWarning("LeaveCart called with a null customer.");
+            Debug.LogWarning("LeaveCart called with t null customer.");
             return;
         }
 

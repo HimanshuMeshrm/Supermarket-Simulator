@@ -23,8 +23,8 @@ public class Customer : Entity, IInteractor
     private Queue<ITask> _tasks = new Queue<ITask>();
     private ITask _currentTask;
 
-    public Cart _currentCart;
 
+    public Cart _currentCart { get; set; }
     public void InitializeCustomer()
     {
         thoughtUI = UIManager.Instance.ThoughtsUIPool.Get().GetComponent<EntityThoughtUI>();

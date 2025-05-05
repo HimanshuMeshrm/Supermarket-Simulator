@@ -72,7 +72,7 @@ public class CashCounter : Interactable
         Vector3 basePosition = queueStartPoint.position;
         Vector3 direction = -queueStartPoint.right.normalized;
 
-        Customer[] queueArray = _queue.ToArray(); // Needed to index items in a Queue
+        Customer[] queueArray = _queue.ToArray(); // Needed to index items in t Queue
 
         for (int i = 0; i < queueArray.Length; i++)
         {

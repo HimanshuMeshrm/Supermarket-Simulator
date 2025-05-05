@@ -61,4 +61,16 @@ public class Shop : MonoBehaviour
         }
         return null;
     }
+    public Shelve GetShelve(ItemData item, Shelve compare)
+    {
+        foreach (var shelve in Shelves)
+        {
+            if(shelve == compare) continue;
+            if (shelve.Item == item)
+            {
+                return shelve;
+            }
+        }
+        return null;
+    }
 }

@@ -71,10 +71,46 @@ public class ItemSpace
     {
         if (!IsEmpty)
         {
+            Debug.Log($"[itemspace] Called. returnToPool = {returnToPool}");
+
+            if (Item == null)
+            {
+                Debug.LogWarning("[itemspace] Item is null. Exiting.");
+                return;
+            }
+
+            Debug.Log($"[itemspace] Item = {Item}, ItemData = {Item?.ItemData}, ItemTransform = {ItemTransform}");
+
             if (returnToPool)
             {
-                PoolManager.Instance.GetItemPool(Item.ItemData).ReturnToPool(ItemTransform.gameObject);
+                if (Item.ItemData == null)
+                {
+                    Debug.LogError("[itemspace] ItemData is null! Cannot return to pool.");
+                }
+                else if (PoolManager.Instance == null)
+                {
+                    Debug.LogError("[itemspace] PoolManager.Instance is null!");
+                }
+                else if (ItemTransform == null)
+                {
+                    Debug.LogError("[itemspace] ItemTransform is null!");
+                }
+                else
+                {
+                    var pool = PoolManager.Instance.GetItemPool(Item.ItemData);
+                    if (pool == null)
+                    {
+                        Debug.LogError("[itemspace] No pool found for this ItemData.");
+                    }
+                    else
+                    {
+                        Debug.Log("[itemspace] Returning item to pool.");
+                        pool.ReturnToPool(ItemTransform.gameObject);
+                    }
+                }
             }
+
+            Debug.Log("[itemspace] Clearing item and unreserving...");
             Item = null;
             Unreserve();
         }

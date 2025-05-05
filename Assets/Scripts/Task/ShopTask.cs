@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ShopTask : ITask
 {
@@ -44,8 +46,27 @@ public class ShopTask : ITask
         Item shelveItem = shelve.Inventory.RemoveItem()?.GetComponent<Item>();
         if (shelveItem == null)
         {
-            customer.thoughtUI.SetIcon(DataHolder.Instance.GetTaskSprite("Waiting"));
-            return;
+            Shelve shelve1 = GameManager.Shop.GetShelve(customer._currentItemRequest.Data, shelve);
+            shelveItem = shelve1?.Inventory.RemoveItem()?.GetComponent<Item>();
+            if (shelve1 != null && shelveItem != null)
+            {
+                Vector3 targetPosition;
+                NavMeshHit hit;
+
+                if (NavMesh.SamplePosition(shelve.transform.position, out hit, 5f, NavMesh.AllAreas))
+                {
+                    targetPosition = hit.position;
+                    customer.SetDestination(targetPosition);
+                    customer.SetInteractable(shelve1);
+                    shelve = shelve1;
+                    Debug.Log($"Customer {customer.name} going to shelve1 for item: {customer._currentItemRequest.Data.name}, target position: {targetPosition}");
+                }
+            }
+            else
+            {
+                customer.thoughtUI.SetIcon(DataHolder.Instance.GetTaskSprite("Waiting"));
+                return;
+            }
         }
 
         ItemSpace reservedSpace = customer._currentCart.Inventory.ReserveFirstEmptySpace();

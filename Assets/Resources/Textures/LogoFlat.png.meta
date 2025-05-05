@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 6c74aa0e404045e449ea4a7f5addc735
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3839754094839945707
+    second: LogoFlat_0
+  - first:
+      213: 2849339466441929761
+    second: LogoFlat_1
+  - first:
+      213: -4528357297680316900
+    second: LogoFlat_2
+  - first:
+      213: -2338902791044078406
+    second: LogoFlat_3
+  - first:
+      213: -3684289869345074983
+    second: LogoFlat_4
+  - first:
+      213: -5958645889500870254
+    second: LogoFlat_5
+  - first:
+      213: 4440188701913188867
+    second: LogoFlat_6
+  - first:
+      213: -5395738058709989059
+    second: LogoFlat_7
+  - first:
+      213: 5417333862068110239
+    second: LogoFlat_8
+  - first:
+      213: 3560439369301837636
+    second: LogoFlat_9
+  - first:
+      213: 44457793570351373
+    second: LogoFlat_10
+  - first:
+      213: 6281255383698246337
+    second: LogoFlat_11
+  - first:
+      213: -5097613562464224733
+    second: LogoFlat_12
+  - first:
+      213: 5011826832770197490
+    second: LogoFlat_13
+  - first:
+      213: 5877398832215577654
+    second: LogoFlat_14
+  - first:
+      213: 4670105031682140033
+    second: LogoFlat_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LogoFlat_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 335
+        width: 936
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be959cf510c894530800000000000000
+      internalID: 3839754094839945707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_1
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 505
+        width: 76
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 124b5c5f523ea8720800000000000000
+      internalID: 2849339466441929761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_2
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 505
+        width: 67
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1687bfa70b0821c0800000000000000
+      internalID: -4528357297680316900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_3
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 505
+        width: 86
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab4e5a7bd4c8a8fd0800000000000000
+      internalID: -2338902791044078406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_4
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 505
+        width: 107
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0dd1052e5cedcc0800000000000000
+      internalID: -3684289869345074983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_5
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 393
+        width: 47
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29985fd3223ae4da0800000000000000
+      internalID: -5958645889500870254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_6
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 391
+        width: 52
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a0d396918be9d30800000000000000
+      internalID: 4440188701913188867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_7
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 392
+        width: 69
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d39098dc2dc7e15b0800000000000000
+      internalID: -5395738058709989059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_8
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 392
+        width: 42
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93c34ef17c3e2b40800000000000000
+      internalID: 5417333862068110239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 391
+        width: 48
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4474d8b0eb8396130800000000000000
+      internalID: 3560439369301837636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_10
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 391
+        width: 52
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d092241b022fd9000800000000000000
+      internalID: 44457793570351373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_11
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 392
+        width: 51
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca08d0fd708b2750800000000000000
+      internalID: 6281255383698246337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_12
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 392
+        width: 50
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32a3b172973a149b0800000000000000
+      internalID: -5097613562464224733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_13
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 391
+        width: 51
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f7e90b53f59d8540800000000000000
+      internalID: 5011826832770197490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_14
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 393
+        width: 48
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634518d1917b09150800000000000000
+      internalID: 5877398832215577654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoFlat_15
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 391
+        width: 41
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 187ad2578cb8fc040800000000000000
+      internalID: 4670105031682140033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 20284f055bf7cc348b162569da682553
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LogoFlat_0: 3839754094839945707
+      LogoFlat_1: 2849339466441929761
+      LogoFlat_10: 44457793570351373
+      LogoFlat_11: 6281255383698246337
+      LogoFlat_12: -5097613562464224733
+      LogoFlat_13: 5011826832770197490
+      LogoFlat_14: 5877398832215577654
+      LogoFlat_15: 4670105031682140033
+      LogoFlat_2: -4528357297680316900
+      LogoFlat_3: -2338902791044078406
+      LogoFlat_4: -3684289869345074983
+      LogoFlat_5: -5958645889500870254
+      LogoFlat_6: 4440188701913188867
+      LogoFlat_7: -5395738058709989059
+      LogoFlat_8: 5417333862068110239
+      LogoFlat_9: 3560439369301837636
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

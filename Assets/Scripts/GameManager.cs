@@ -20,12 +20,17 @@ public class GameManager : Singleton<GameManager>
     
     public int MaxCustomers => Shop.ShopLevel * 3;
 
+    private void Awake()
+    {
+        _ = Instance;
+    }
     private void Start()
     {
         SpawnCustomer();
     }
     public void Update()
     {
+        if (UIManager.Instance.IsPaused) return;
         Time.timeScale = TimeScale;
 
         
@@ -47,17 +52,8 @@ public class GameManager : Singleton<GameManager>
 
         Vector3 spawnPosition = Shop.ShopExitPosition.position;
 
-        
-        if (UnityEngine.AI.NavMesh.SamplePosition(spawnPosition, out var hit, 2f, UnityEngine.AI.NavMesh.AllAreas))
-        {
-            customer.transform.position = hit.position;
-            customer.NavMeshAgent.Warp(hit.position);
-        }
-        else
-        {
-            Debug.LogWarning("No valid NavMesh position found near spawn point.");
-            customer.transform.position = spawnPosition;
-        }
+        customer.NavMeshAgent.SetPosition(spawnPosition);
+
         customer.InitializeCustomer();
     }
 }

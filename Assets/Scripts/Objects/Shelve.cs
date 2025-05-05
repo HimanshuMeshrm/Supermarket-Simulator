@@ -52,18 +52,30 @@ public class Shelve : Interactable
                             break;
                         }
 
-                        List<Item> singleItemList = new List<Item> { capturedItem };
 
-                        
+
+
                         ItemSpace capturedSpace = targetSpace;
 
-   
-                        AnimatorUtil.MoveItems(singleItemList, capturedSpace.Transform, 1f, () =>
-                        {
-                            Inventory.AddItemToSpace(capturedSpace, capturedItem);
-                            ItemsFull();
-                        });
+                        SmoothMover.Move(
+                         item: capturedItem.transform,
+                         target: capturedSpace.Transform,
+                         duration: 0.5f,
+                         ease: SmoothMover.EaseType.Smooth,
+                         onComplete: () =>
+                         {
+                             Inventory.AddItemToSpace(capturedSpace, capturedItem);
+                             ItemsFull();
+                         });
+
                     }
+
+                    /*AnimatorUtil.MoveItems(capturedItem.transform, capturedSpace.Transform, 1f, () =>
+                    {
+                        Inventory.AddItemToSpace(capturedSpace, capturedItem);
+                        ItemsFull();
+                    });*/
+
                     break;
 
                 default:
@@ -76,5 +88,5 @@ public class Shelve : Interactable
     {
         Debug.Log("Boo");
     }
-   
 }
+   

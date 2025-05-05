@@ -11,8 +11,11 @@ namespace MNDRiN.UI
         IPointerDownHandler,
         IPointerUpHandler
     {
-        [SerializeField] protected Transform targetTransform; // Used for scaling and rotation
-        [SerializeField] protected UIElementConfig config; // Configuration Scriptable Object
+        [SerializeField] protected Transform targetTransform;
+        [SerializeField] protected UIElementConfig config;
+
+        private Coroutine scaleCoroutine;
+        private Coroutine rotateCoroutine;
 
         protected virtual void Awake()
         {
@@ -52,15 +55,29 @@ namespace MNDRiN.UI
             PlaySound(config.upSound);
         }
 
-        protected virtual void ApplyTransformEffects(UIElementConfig.EffectConfig effectConfig)
+        private Vector3 lastScaleTarget;
+        private Vector3 lastRotateTarget;
+
+        private void ApplyTransformEffects(UIElementConfig.EffectConfig effectConfig)
         {
-            if (targetTransform != null)
+            if (targetTransform == null) return;
+
+            if (effectConfig.scale != lastScaleTarget)
             {
-                StopAllCoroutines();
-                StartCoroutine(ScaleTransition(targetTransform.localScale, effectConfig.scale, effectConfig.scaleDuration));
-                StartCoroutine(RotateTransition(targetTransform.rotation.eulerAngles, effectConfig.rotation, effectConfig.rotationDuration));
+                if (scaleCoroutine != null) StopCoroutine(scaleCoroutine);
+                scaleCoroutine = StartCoroutine(ScaleTransition(targetTransform.localScale, effectConfig.scale, effectConfig.scaleDuration));
+                lastScaleTarget = effectConfig.scale;
+            }
+
+            if (effectConfig.rotation != lastRotateTarget)
+            {
+                if (rotateCoroutine != null) StopCoroutine(rotateCoroutine);
+                rotateCoroutine = StartCoroutine(RotateTransition(targetTransform.rotation.eulerAngles, effectConfig.rotation, effectConfig.rotationDuration));
+                lastRotateTarget = effectConfig.rotation;
             }
         }
+
+
 
         protected virtual void PlaySound(AudioClip clip)
         {
@@ -69,30 +86,40 @@ namespace MNDRiN.UI
                 AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
             }
         }
-
         protected IEnumerator ScaleTransition(Vector3 fromScale, Vector3 toScale, float duration)
         {
+           // Debug.Log($"[ScaleCoroutine] START from: {fromScale} to: {toScale}, duration: {duration}");
+
             float elapsedTime = 0f;
             while (elapsedTime < duration)
             {
                 targetTransform.localScale = Vector3.Lerp(fromScale, toScale, elapsedTime / duration);
-                elapsedTime += Time.deltaTime;
+               // Debug.Log($"[ScaleCoroutine] Lerp: {targetTransform.localScale}");
+                elapsedTime += Time.unscaledDeltaTime;
                 yield return null;
             }
+
             targetTransform.localScale = toScale;
+           // Debug.Log($"[ScaleCoroutine] END at: {targetTransform.localScale}");
         }
 
         protected IEnumerator RotateTransition(Vector3 fromRotation, Vector3 toRotation, float duration)
         {
+           // Debug.Log($"[RotateCoroutine] START from: {fromRotation} to: {toRotation}, duration: {duration}");
+
             float elapsedTime = 0f;
             while (elapsedTime < duration)
             {
                 Vector3 newRotation = Vector3.Lerp(fromRotation, toRotation, elapsedTime / duration);
                 targetTransform.rotation = Quaternion.Euler(newRotation);
-                elapsedTime += Time.deltaTime;
+              //  Debug.Log($"[RotateCoroutine] Lerp: {newRotation}");
+                elapsedTime += Time.unscaledDeltaTime;
                 yield return null;
             }
+
             targetTransform.rotation = Quaternion.Euler(toRotation);
+           // Debug.Log($"[RotateCoroutine] END at: {targetTransform.rotation.eulerAngles}");
         }
+
     }
 }

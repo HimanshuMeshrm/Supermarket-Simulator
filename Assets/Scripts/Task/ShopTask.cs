@@ -21,11 +21,11 @@ public class ShopTask : ITask
 
     public void Update(Entity entity)
     {
-        
+
 
         if (!_started || IsCompleted || _isItemBeingTransferred) return;
 
-       
+
         if (entity is Customer customer && !customer.IsInteracting)
         {
             if (customer.DestinationReached)
@@ -59,13 +59,26 @@ public class ShopTask : ITask
 
         _isItemBeingTransferred = true;
 
-        AnimatorUtil.MoveItems(new List<Item> { shelveItem }, reservedSpace.Transform, 1f, () => {
+        /*AnimatorUtil.MoveItems(shelveItem.transform, reservedSpace.Transform, 1f, () => {
+            customer._currentCart.Inventory.AddItemToSpace(reservedSpace, shelveItem);
+            OnItemTransferred(customer);
+        });
+        */
+
+
+
+        SmoothMover.Move(
+        item: shelveItem.transform,
+        target: reservedSpace.Transform,
+        duration: 0.5f,
+        ease: SmoothMover.EaseType.Smooth,
+        onComplete: () =>
+        {
             customer._currentCart.Inventory.AddItemToSpace(reservedSpace, shelveItem);
             OnItemTransferred(customer);
         });
 
     }
-
 
     private void OnItemTransferred(Customer customer)
     {
@@ -82,7 +95,7 @@ public class ShopTask : ITask
             customer.SetDestination(customer._current.transform.position);
         }
 
-        _isItemBeingTransferred = false; 
+        _isItemBeingTransferred = false;
     }
 
     private void ProceedToNextItem(Customer customer)

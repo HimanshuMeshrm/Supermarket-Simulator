@@ -29,6 +29,7 @@ public class PoolManager : Singleton<PoolManager>
 
     private void Awake()
     {
+        _ = Instance;
         CreateItemPool();
         CreateCartPool();
         CreateCustomerPool();

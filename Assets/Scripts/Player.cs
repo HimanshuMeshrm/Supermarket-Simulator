@@ -16,6 +16,7 @@ public class Player : Entity, IInteractor
     private Interactable _current;
     public bool IsInteracting { get; set; }
 
+    private PlayerInfo PlayerInfo = new PlayerInfo();
     private static class AnimStates
     {
         public const string Idle = "Idle";
@@ -29,7 +30,14 @@ public class Player : Entity, IInteractor
     }
     private void Start()
     {
+        LoadPlayer();
         SetEntityType(EntityType.Player);
+    }
+    private void LoadPlayer()
+    {
+        PlayerInfo = SaveManager.GetCurrentGameSave().PlayerInfo;
+        MoneyAccount.AddMoney(PlayerInfo.MoneyAccount.Money);
+        NavMeshAgent.SetPosition(PlayerInfo.PlayerPosition.ToVector3());
     }
     public override void Update()
     {

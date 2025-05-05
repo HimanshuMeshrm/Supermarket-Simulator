@@ -10,17 +10,16 @@ namespace MNDRiN.UI
     public class UIButton : UIElement
     {
         [Space(5)]
-        [SerializeField] private List<GraphicConfig> graphicConfigs; // List of specific graphic configurations
+        [SerializeField] private List<GraphicConfig> graphicConfigs;
 
         [Space(3)]
         [SerializeField] UnityEvent OnClick, OnHoverEnter, OnHoverExit;
 
-
         [System.Serializable]
         public class GraphicConfig
         {
-            public Graphic graphic; // The graphic component (Image, Text, etc.)
-            public EventColors eventColors; // Color configurations for different events
+            public Graphic graphic;
+            public EventColors eventColors;
         }
 
         [System.Serializable]
@@ -33,59 +32,105 @@ namespace MNDRiN.UI
             public Color upColor;
         }
 
-        protected override void ApplyTransformEffects(UIElementConfig.EffectConfig effectConfig)
-        {
-            base.ApplyTransformEffects(effectConfig); // Apply base scale and rotation effects
-        }
+        private Dictionary<Graphic, Coroutine> activeCoroutines = new Dictionary<Graphic, Coroutine>();
+
+      
 
         public override void OnPointerClick(PointerEventData eventData)
         {
             base.OnPointerClick(eventData);
-            ApplyGraphicEffects(g => g.eventColors.clickColor, config.onClick.transitionDuration);
-            PlaySound(config.clickSound);
+            foreach (var graphicConfig in graphicConfigs)
+            {
+                if (graphicConfig.graphic != null)
+                {
+                    if (activeCoroutines.ContainsKey(graphicConfig.graphic))
+                    {
+                        StopCoroutine(activeCoroutines[graphicConfig.graphic]);
+                        activeCoroutines.Remove(graphicConfig.graphic);
+                    }
+
+                    Coroutine colorCoroutine = StartCoroutine(ColorTransition(graphicConfig.graphic, graphicConfig.graphic.color, graphicConfig.eventColors.clickColor, config.onClick.transitionDuration));
+                    activeCoroutines.Add(graphicConfig.graphic, colorCoroutine);
+                }
+            }
             OnClick?.Invoke();
         }
 
         public override void OnPointerEnter(PointerEventData eventData)
         {
             base.OnPointerEnter(eventData);
-            ApplyGraphicEffects(g => g.eventColors.enterColor, config.onEnter.transitionDuration);
-            PlaySound(config.enterSound);
+            foreach (var graphicConfig in graphicConfigs)
+            {
+                if (graphicConfig.graphic != null)
+                {
+                    if (activeCoroutines.ContainsKey(graphicConfig.graphic))
+                    {
+                        StopCoroutine(activeCoroutines[graphicConfig.graphic]);
+                        activeCoroutines.Remove(graphicConfig.graphic);
+                    }
+
+                    Coroutine colorCoroutine = StartCoroutine(ColorTransition(graphicConfig.graphic, graphicConfig.graphic.color, graphicConfig.eventColors.enterColor, config.onEnter.transitionDuration));
+                    activeCoroutines.Add(graphicConfig.graphic, colorCoroutine);
+                }
+            }
             OnHoverEnter?.Invoke();
         }
 
         public override void OnPointerExit(PointerEventData eventData)
         {
             base.OnPointerExit(eventData);
-            ApplyGraphicEffects(g => g.eventColors.exitColor, config.onExit.transitionDuration);
-            PlaySound(config.exitSound);
+            foreach (var graphicConfig in graphicConfigs)
+            {
+                if (graphicConfig.graphic != null)
+                {
+                    if (activeCoroutines.ContainsKey(graphicConfig.graphic))
+                    {
+                        StopCoroutine(activeCoroutines[graphicConfig.graphic]);
+                        activeCoroutines.Remove(graphicConfig.graphic);
+                    }
+
+                    Coroutine colorCoroutine = StartCoroutine(ColorTransition(graphicConfig.graphic, graphicConfig.graphic.color, graphicConfig.eventColors.exitColor, config.onExit.transitionDuration));
+                    activeCoroutines.Add(graphicConfig.graphic, colorCoroutine);
+                }
+            }
             OnHoverExit?.Invoke();
         }
 
         public override void OnPointerDown(PointerEventData eventData)
         {
             base.OnPointerDown(eventData);
-            ApplyGraphicEffects(g => g.eventColors.downColor, config.onEnter.transitionDuration);
-            PlaySound(config.downSound);
+            foreach (var graphicConfig in graphicConfigs)
+            {
+                if (graphicConfig.graphic != null)
+                {
+                    if (activeCoroutines.ContainsKey(graphicConfig.graphic))
+                    {
+                        StopCoroutine(activeCoroutines[graphicConfig.graphic]);
+                        activeCoroutines.Remove(graphicConfig.graphic);
+                    }
+
+                    Coroutine colorCoroutine = StartCoroutine(ColorTransition(graphicConfig.graphic, graphicConfig.graphic.color, graphicConfig.eventColors.downColor, config.onEnter.transitionDuration));
+                    activeCoroutines.Add(graphicConfig.graphic, colorCoroutine);
+                }
+            }
         }
 
         public override void OnPointerUp(PointerEventData eventData)
         {
             base.OnPointerUp(eventData);
-            ApplyGraphicEffects(g => g.eventColors.upColor, config.onExit.transitionDuration);
-            PlaySound(config.upSound);
-        }
-
-        private void ApplyGraphicEffects(System.Func<GraphicConfig, Color> getColor, float transitionDuration)
-        {
-            if (graphicConfigs != null && graphicConfigs.Count > 0)
+            
+            foreach (var graphicConfig in graphicConfigs)
             {
-                foreach (var graphicConfig in graphicConfigs)
+                if (graphicConfig.graphic != null)
                 {
-                    if (graphicConfig.graphic != null)
+                    if (activeCoroutines.ContainsKey(graphicConfig.graphic))
                     {
-                        StartCoroutine(ColorTransition(graphicConfig.graphic, graphicConfig.graphic.color, getColor(graphicConfig), transitionDuration));
+                        StopCoroutine(activeCoroutines[graphicConfig.graphic]);
+                        activeCoroutines.Remove(graphicConfig.graphic);
                     }
+
+                    Coroutine colorCoroutine = StartCoroutine(ColorTransition(graphicConfig.graphic, graphicConfig.graphic.color, graphicConfig.eventColors.upColor, config.onExit.transitionDuration));
+                    activeCoroutines.Add(graphicConfig.graphic, colorCoroutine);
                 }
             }
         }
@@ -96,7 +141,7 @@ namespace MNDRiN.UI
             while (elapsedTime < duration)
             {
                 graphic.color = Color.Lerp(fromColor, toColor, elapsedTime / duration);
-                elapsedTime += Time.deltaTime;
+                elapsedTime += Time.unscaledDeltaTime;
                 yield return null;
             }
             graphic.color = toColor;

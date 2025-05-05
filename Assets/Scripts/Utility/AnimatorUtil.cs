@@ -1,48 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
 public static class AnimatorUtil
 {
-    public static void MoveItems(List<Item> items, Transform target, float duration, Action onComplete)
+    public static void MoveItems(Transform item, Transform target, float duration, Action onComplete)
     {
-        int completed = 0;
-        int total = items.Count;
-
-        foreach (var item in items)
-        {
-            Vector3 endPosition = target.position;
-
-            item.transform.DOMove(endPosition, duration)
-                .SetEase(Ease.OutQuad)
-                .OnComplete(() => {
-                    item.transform.position = endPosition;
-                    completed++;
-                    if (completed >= total)
-                        onComplete?.Invoke();
-                });
-        }
-    }
-
-}
-public static class InventoryHelper
-{
-    public static void TransferItem(Inventory from, Inventory to, Transform receiver, float moveDuration, Action onComplete = null)
-    {
-        Item item = from.RemoveItem().GetComponent<Item>();
-        if (item == null)
-        {
-            onComplete?.Invoke();
-            return;
-        }
-
-        
-        AnimatorUtil.MoveItems(new List<Item> { item }, receiver, moveDuration, () => {
-            to.AddItem(item);
-            onComplete?.Invoke();
-        });
+        item.transform.DOMove(target.position, duration)
+            .SetEase(Ease.InOutBounce)
+            .OnComplete(() =>
+            {
+                item.transform.position = target.position;
+                onComplete?.Invoke();
+            });
     }
 }
 
@@ -74,5 +45,31 @@ public static class NavMeshHelper
 
         return target; // fallback to original
     }
+    public static void SetPosition(this NavMeshAgent agent, Vector3 targetPosition)
+    {
+        Vector3 from = agent.transform.position;
 
+        if (IsPathClear(from, targetPosition))
+        {
+            agent.Warp(targetPosition);
+            return;
+        }
+
+        Vector3 fallback = FindNearbyClearPosition(targetPosition, from);
+
+        if (IsPathClear(from, fallback))
+        {
+            agent.Warp(fallback);
+            return;
+        }
+
+        if (NavMesh.SamplePosition(targetPosition, out var hit, 2f, NavMesh.AllAreas))
+        {
+            agent.Warp(hit.position);
+            return;
+        }
+
+        Debug.LogWarning("NavMeshHelper: No clear or nearby NavMesh position found. Using raw target position.");
+        agent.transform.position = targetPosition;
+    }
 }

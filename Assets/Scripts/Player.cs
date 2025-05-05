@@ -17,6 +17,8 @@ public class Player : Entity, IInteractor
     public bool IsInteracting { get; set; }
 
     private PlayerInfo PlayerInfo = new PlayerInfo();
+
+    public Transform defaultSpawn;
     private static class AnimStates
     {
         public const string Idle = "Idle";
@@ -37,12 +39,20 @@ public class Player : Entity, IInteractor
     {
         PlayerInfo = SaveManager.GetCurrentGameSave().PlayerInfo;
         MoneyAccount.AddMoney(PlayerInfo.MoneyAccount.Money);
-        NavMeshAgent.SetPosition(PlayerInfo.PlayerPosition.ToVector3());
+
+        if (PlayerInfo.PlayerPosition.ToVector3() == Vector3.zero)
+        {
+            transform.position = defaultSpawn.position;
+        }
+        else
+        {
+            transform.position = PlayerInfo.PlayerPosition.ToVector3();
+        }
     }
     public override void Update()
     {
         HandleMovement();
-        //HandleInteraction();
+        HandleInteraction();
         UpdateAnimationState();
         base.Update();
     }

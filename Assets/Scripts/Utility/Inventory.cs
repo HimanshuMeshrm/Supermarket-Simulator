@@ -116,7 +116,7 @@ public class Inventory
         int count = 0;
         foreach (var space in spaces)
         {
-            if (!space.IsEmpty && space.Item.ItemData == itemData)
+            if (!space.IsEmpty && space.Item?.ItemData == itemData)
                 count++;
         }
 

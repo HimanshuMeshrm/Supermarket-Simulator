@@ -33,11 +33,12 @@ public abstract class Interactable : MonoBehaviour
                 Debug.LogWarning($"{gameObject.name}: Already interacting with {CurrentInteractor}");
             }
 
+
             CurrentInteractor = interactor;
             interactor.SetInteractable(this);
             if(interactor is Player player)
             {
-                Interact(player);
+                UIManager.Instance.SetRestockUI(this as Shelve);
             }
             OnFocus();
         }
@@ -52,12 +53,17 @@ public abstract class Interactable : MonoBehaviour
             interactor.SetInteractable(null);
             OnUnfocus();
             CurrentInteractor = null;
+            if (interactor is Player player)
+            {
+                UIManager.Instance.HideRestock();
+            }
             Debug.Log($"[Interactable] {gameObject.name} - {interactor} has exited the trigger area.");
         }
         else
         {
             Debug.LogWarning($"[Interactable] {gameObject.name} - Exit triggered by an unrecognized object or different interactor.");
         }
+        
     }
 
     public void TryInteract()

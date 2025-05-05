@@ -19,6 +19,7 @@ public class UIManager : Singleton<UIManager>
     public GameObject PauseMenuPanel, OptionsPanel;
 
     public bool IsPaused { get; private set; }  = false;
+    public GameObject RestockUI;
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape) && !OptionsPanel.activeInHierarchy)
@@ -34,6 +35,28 @@ public class UIManager : Singleton<UIManager>
 
             }
         }
+    }
+
+    Camera _camera;
+    public void SetRestockUI(Shelve shhelve)
+    {
+        if (_camera == null)
+            _camera = Camera.main;
+
+        if (shhelve != null)
+        {
+            RestockUI.gameObject.SetActive(true);
+            RestockUI.transform.position = shhelve.transform.position + Vector3.up * 2f;
+
+
+            Vector3 direction = _camera.transform.position - RestockUI.transform.position;
+            direction.y = 0;
+            RestockUI.transform.rotation = Quaternion.LookRotation(-direction);
+        }
+    }
+    public void HideRestock()
+    {
+        RestockUI.gameObject.SetActive(false);
     }
     public void PauseGame()
     {

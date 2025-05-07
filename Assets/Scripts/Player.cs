@@ -27,11 +27,14 @@ public class Player : Entity, IInteractor
     {
         _controller = GetComponent<CharacterController>();
     }
-
+    private void Start()
+    {
+        SetEntityType(EntityType.Player);
+    }
     public override void Update()
     {
         HandleMovement();
-        HandleInteraction();
+        //HandleInteraction();
         UpdateAnimationState();
         base.Update();
     }
@@ -119,5 +122,10 @@ public class Player : Entity, IInteractor
         IsInteracting = true;
         _current.TryInteract();
         IsInteracting = false;
+    }
+
+    public override void SetEntityType(EntityType type)
+    {
+        this.Type = type;
     }
 }

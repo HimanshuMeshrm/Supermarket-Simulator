@@ -21,8 +21,6 @@ public abstract class StateController : MonoBehaviour
     #region Component References
 
     [field: SerializeField] public Animator Animator { get; protected set; }
-    [field: SerializeField] public Rigidbody Rigidbody { get; protected set; }
-    [field: SerializeField] public Collider Collider { get; protected set; }
 
     #endregion
 
@@ -36,7 +34,7 @@ public abstract class StateController : MonoBehaviour
         CurrentState?.Exit();
         CurrentState = newState;
         CurrentState?.Enter();
-
+        
         UpdateDebugStateName();
     }
 

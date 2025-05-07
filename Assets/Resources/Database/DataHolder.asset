@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0185474109b414cb014cfba4552b12, type: 3}
+  m_Name: DataHolder
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 11400000, guid: 51b54004dbcd28d4a98d3055d4377589, type: 2}
+  - {fileID: 11400000, guid: e62d2bf0baabc194aafa4fdbfc2c5a6a, type: 2}
+  - {fileID: 11400000, guid: 952e786035a30934f86e35344a565571, type: 2}
+  CartPrefab: {fileID: 768014090731628837, guid: 0a13b09fbeb3fa34cac448317791fb98, type: 3}
+  CustomersPrefabs:
+  - {fileID: 6012626047370274902, guid: 827096fd965fac9459bd53420602eec7, type: 3}
+  - {fileID: 3175653726299292161, guid: 7fe397fe347c3b547a0bad442acf7abe, type: 3}
+  TaskSprite:
+    _serializedList:
+    - Key: GetCartTask
+      Value: {fileID: 21300000, guid: 79e47108b5f4d1b478b451979414d4a5, type: 3}
+    - Key: Waiting
+      Value: {fileID: 21300000, guid: 61ae762032bc0564da3347fa7b86cfdb, type: 3}
+    - Key: Billing
+      Value: {fileID: 21300000, guid: bf80d49eee6d80f48ba64a114e26dc6e, type: 3}
+    - Key: GoToCashCounterTask
+      Value: {fileID: 21300000, guid: ed5f6f8c2a2e16b4481cbcc137ee8b87, type: 3}
+    - Key: ShopExitTask
+      Value: {fileID: 1526939622, guid: 11efe68ca4fb3ec40b2b0fd06c833b7d, type: 3}

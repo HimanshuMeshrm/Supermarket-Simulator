@@ -20,6 +20,15 @@ public class Employee : Entity, IInteractor
         GoToCashCounter,
         GoToRest
     }
+
+    private void Start()
+    {
+        SetEntityType(EntityType.Employee);
+    }
+    public override void SetEntityType(EntityType type)
+    {
+        this.Type = type;
+    }
     public override void Update()
     {
         UpdateAnimationState();
